@@ -1,0 +1,16 @@
+.button{
+  color: black;
+  background-color: grey;
+  padding: 15px 35px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.button:hover{
+  text-decoration: none;
+  color: darkgrey;
+  opacity: 0.75;
+}

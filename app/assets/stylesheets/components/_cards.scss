@@ -1,0 +1,37 @@
+.card-animal {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  margin-bottom: 15px
+}
+
+.card-animal > img {
+  height: 180px;
+  width: 100%;
+}
+
+.card-animal h2 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-animal p {
+  font-size: 12px;
+  opacity: 0.75px;
+  margin: 0;
+}
+
+.card-animal .card-animal-infos {
+  padding: 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card-animal-infos .card-animal-user {
+  position: absolute;
+  right: 12px;
+  top: -20px;
+  width: 35px;
+}
