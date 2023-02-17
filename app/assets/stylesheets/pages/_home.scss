@@ -1,13 +1,21 @@
 // Specific CSS for your home-page
 .card-container{
-padding-top: 50px;
+padding-top: 40px;
 margin-bottom: 50px;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-items: center;
+display: inline-block;
+margin: 30px 5px 0 5px;
+text-align: center;
 }
 
-body{
+.subtitle-container{
+padding-top: 40px;
+text-align: center;
+}
+
+.body{
+color: darkgrey;
+}
+
+.h1{
 color: darkgrey;
 }

@@ -4,14 +4,19 @@
 }
 
 .banner h1{
-  margin: 0;
-  color: white;
-  font-size: 50px;
+  margin-top: 35px;
+  font-family:'Trebuchet MS';
+  color: black;
+  font-size: 100px;
   font-weight: bold;
+  text-align: center;
 }
 
 .banner p{
-  font-size: 25px;
-  color: white;
+  font-size: 35px;
+  font-family:'Trebuchet MS';
+  color: rgb(100, 100, 100);
   opacity: 0.75;
+  text-align: center;
+  margin-top: 0px;
 }
