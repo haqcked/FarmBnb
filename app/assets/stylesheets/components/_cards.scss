@@ -1,12 +1,12 @@
 .card-animal {
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  margin-bottom: 15px
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin: 30px;
 }
 
 .card-animal > img {
-  height: 180px;
-  width: 100%;
+  height: 200px;
+  width: 250px;
 }
 
 .card-animal h2 {
@@ -20,18 +20,7 @@
   margin: 0;
 }
 
-.card-animal .card-animal-infos {
+.card-animal-infos {
   padding: 15px;
   text-align: center;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  position: relative;
-}
-
-.card-animal-infos .card-animal-user {
-  position: absolute;
-  right: 12px;
-  top: -20px;
-  width: 35px;
 }

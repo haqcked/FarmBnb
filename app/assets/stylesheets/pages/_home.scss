@@ -1,14 +1,22 @@
 // Specific CSS for your home-page
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .card-container{
-padding-top: 40px;
-margin-bottom: 50px;
-display: inline-block;
-margin: 30px 5px 0 5px;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-evenly;
 text-align: center;
+margin: 50px;
 }
 
 .subtitle-container{
-padding-top: 40px;
+padding-top: 50px;
 text-align: center;
 }
 
@@ -18,4 +26,10 @@ color: darkgrey;
 
 .h1{
 color: darkgrey;
+}
+
+.line {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
 }
