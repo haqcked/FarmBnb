@@ -1,9 +1,9 @@
 .button{
   color: black;
-  background-color: lightgray;
+  background-color: rgb(140, 140, 140);
   padding: 15px 35px;
   font-size: 15px;
-  font-weight: 750;
+  font-weight: bold;
   border-radius: 3px;
   text-decoration: none;
   transition: 0.25s;
@@ -11,6 +11,7 @@
 
 .button:hover{
   text-decoration: none;
-  color: black;
+  background-color: black;
+  color: white;
   opacity: 0.75;
 }
