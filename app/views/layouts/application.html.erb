@@ -13,9 +13,9 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
     <% if user_signed_in? %>
-      <h2>Hi <%= current_user.first_name.capitalize %></h2>
+      <h4 class="text-center">Hi <%= current_user.first_name.capitalize %>!</h4>
     <% end %>
+    <%= yield %>
   </body>
 </html>

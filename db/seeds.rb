@@ -19,7 +19,7 @@ puts "created 10 categories"
 
 
 puts "cleaning database for animals"
-# Animal.destroy_all
+Animal.destroy_all
 
 puts "creating animal 1"
 Animal.create!(name: "Jazz", description: "a gray cat", price: 15, user_id: 1, category_id: Category.all.sample.id)

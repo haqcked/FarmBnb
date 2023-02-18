@@ -1,6 +1,24 @@
-<%# <h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p> %>
+<div class="banner">
+    <h1>FarmBNB</h1>
+    <p>Full List of Animals</p>
+</div>
 
-<h2> hi </h2>
+<div class="line">
+<hr>
+</div>
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+
+  <ul>
+    <% @animals.each do |animal| %>
+      <div class="card-animal">
+        <li><%= link_to animal_path(animal), class:"text-decoration-none" do %>
+          <%= animal.name %></li>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>
 
 <%# link_to "See details", animal_path(@animal), class: "btn btn-primary"%>
