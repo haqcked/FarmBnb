@@ -35,6 +35,7 @@ puts "creating animal 6"
 Animal.create!(name: "Jefferson", description: "a handsome goat", price: 20, user_id: 1, category_id: Category.all.sample.id)
 puts "creating animal 7"
 Animal.create!(name: "Sarah", description: "a white horse", price: 40, user_id: 1, category_id: Category.all.sample.id)
+
 puts "done creating 7 animals"
 
 puts "========================================="

@@ -19,19 +19,15 @@
           Booking Details
         </div>
         <div class="card-body">
-          <p>a pratial from booking will be added here</p>
-          <%# <h5 class="card-title"><%= @animal.name %></h5> %>
-          <%# <%= form_for @booking do |f| %> %>
-            <%# <div class="form-group"> %>
-              <%# <%= f.label :start_date %> %>
-              <%# <%= f.select :start_date, options_for_select((Date.current..Date.current + 30.days).map{ |date| [date.strftime("%B %d, %Y"), date] }), {}, class: "form-control" %> %>
-            </div>
-            <%# <div class="form-group"> %>
-              <%# <%= f.label :end_date %> %>
-              <%# <%= f.select :end_date, options_for_select((Date.current..Date.current + 30.days).map{ |date| [date.strftime("%B %d, %Y"), date] }), {}, class: "form-control" %> %>
-            </div>
-            <%# <%= f.submit "Book Now", class: "btn btn-primary" %> %>
-          <%# <% end %> %>
+          <div>
+            <h5 class="card-info p-3">$<%= @animal.price %> / day</h5>
+          </div>
+          <%= render "shared/form" %>
+          <hr>
+          <div class="d-flex justify-content-between p-3">
+            <h4>Total Cost:</h4>
+            <h4>$<%= @animal.price %></h4>
+          </div>
         </div>
       </div>
     </div>
