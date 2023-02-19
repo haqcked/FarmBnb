@@ -8,6 +8,7 @@
         <div class="card-body">
           <%# <%= cl_image_tag(@product.photo.key, class: "card-img-top") %> %>
           <h4 class="card-title"><%= @animal.name %></h4>
+          <p class="card-text">Categoty: <%= @animal.category.name.capitalize %></p>
           <p class="card-text"><%= @animal.description %></p>
           <p class="card-text"><%= number_to_currency(@animal.price) %></p>
         </div>

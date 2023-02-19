@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  # belongs_to :animal
+  has_many :animals, dependent: :delete_all
 
   validates :name, presence: true, uniqueness: true
 
