@@ -1,0 +1,16 @@
+<div class="container p-4">
+
+  <%= simple_form_for @booking do |f| %>
+    <div class="form-group">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, class: "form-control", required: true %>
+  </div>
+
+  <%= f.submit "Book Now", class: "btn btn-primary" %>
+<% end %>
+</div>

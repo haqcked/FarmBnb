@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :animals
-  resources :bookings, only: [:new, :create, :edit, :update]
+  resources :animals do
+    resources :bookings, only: [:create]
+  end
+  resources :bookings, only: [:edit, :update]
   resources :users, only: [:show]
   # create the category files in the seed
 
