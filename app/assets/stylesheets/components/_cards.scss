@@ -24,3 +24,9 @@
   padding: 15px;
   text-align: center;
 }
+
+.card-animal-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}

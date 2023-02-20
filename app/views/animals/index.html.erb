@@ -7,18 +7,22 @@
 <hr>
 </div>
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
+<div class="container">
+  <%# <div class="row"> %>
+    <%# <div class="col-md-3"> %>
+      <div class ="card-animal-index">
+        <% @animals.each do |animal| %>
+            <div style="background-image: url(https://cdn.britannica.com/55/174255-050-526314B6/brown-Guernsey-cow.jpg)">
+            <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#= cl_image_path @article.photo.key, height: 300, crop: :fill')" %>
 
-  <ul>
-    <% @animals.each do |animal| %>
-      <div class="card-animal">
-        <li><%= link_to animal_path(animal), class:"text-decoration-none" do %>
-          <%= animal.name %></li>
-        </div>
-      <% end %>
-    <% end %>
-  </ul>
-
+            <%= link_to animal_path(animal), class:"text-decoration-none" do %>
+            <%= animal.name %>
+            <% end %>
+            </div>
+        <% end %>
+      </div>
+    <%# </div> %>
+  <%# </div> %>
 </div>
 
 <%# link_to "See details", animal_path(@animal), class: "btn btn-primary"%>
