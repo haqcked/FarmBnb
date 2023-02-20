@@ -6,24 +6,37 @@
           Animal Details
         </div>
         <div class="card-body">
-          <%# <%= cl_image_tag(@product.photo.key, class: "card-img-top") %> %>
-          <h4 class="card-title"><%= @animal.name %></h4>
-          <p class="card-text">Categoty: <%= @animal.category.name.capitalize %></p>
-          <p class="card-text"><%= @animal.description %></p>
-          <p class="card-text"><%= number_to_currency(@animal.price) %></p>
+          <% if @animal.photo.key.present? %>
+            <%= cl_image_tag(@animal.photo.key, class: "card-img-top") %>
+          <% else %>
+            <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image">
+          <% end %>
+          <h4 class="card-title pt-3"><%= @animal.name %></h4>
+          <p class="card-text text-secondary">Categoty: <%= @animal.category.name.capitalize %></p>
+          <p class="card-description"><%= @animal.description %></p>
+          <h5 class="card-price"><%= number_to_currency(@animal.price) %> / day</h5>
         </div>
       </div>
     </div>
+
     <div class="col-md-6">
-      <div class="card">
+      <div class="card  sticky-top">
         <div class="card-header">
           Booking Details
         </div>
         <div class="card-body">
-          <div>
-            <h5 class="card-info p-3">$<%= @animal.price %> / day</h5>
-          </div>
+
           <%= render "shared/form" %>
+          <div class="booking-info px-5">
+            <div class="d-flex justify-content-between">
+              <p><%= number_to_currency(@animal.price) %> x **number of days** </p>
+              <p>**</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p>extra charge </p>
+              <p>**</p>
+            </div>
+          </div>
           <hr>
           <div class="d-flex justify-content-between p-3">
             <h4>Total Cost:</h4>
@@ -33,6 +46,6 @@
       </div>
     </div>
   </div>
-
+  <p></p>
   <%= link_to "Back to animals", animals_path, class: "text-decoration-none" %>
 </div>
