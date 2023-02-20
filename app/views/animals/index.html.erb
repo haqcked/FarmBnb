@@ -4,21 +4,25 @@
 </div>
 
 <div class="line">
+<%# haq added this link_to to the new_animal_path %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Add new animal", new_animal_path, class: "btn btn-primary text-white rounded-3" %>
+  </div>
+
 <hr>
 </div>
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="cover mb-4 d-flex align-items-center justify-content-center">
 
-  <ul>
-    <% @animals.each do |animal| %>
-      <div class="card-animal">
-        <li><%= link_to animal_path(animal), class:"text-decoration-none" do %>
-          <%= animal.name %></li>
-        </div>
+    <ul>
+      <% @animals.each do |animal| %>
+        <div class="card-animal">
+          <li><%= link_to animal_path(animal), class:"text-decoration-none" do %>
+            <%= animal.name %></li>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
 
-</div>
-
+  </div>
 <%# link_to "See details", animal_path(@animal), class: "btn btn-primary"%>
