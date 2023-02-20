@@ -25,6 +25,12 @@
   text-align: center;
 }
 
+
+.card-animal-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+
 // Show page image
 .card-img-top {
   border-radius: 10px;
