@@ -4,21 +4,26 @@
 </div>
 
 <div class="line">
+<%# haq added this link_to to the new_animal_path %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Add new animal", new_animal_path, class: "btn btn-danger text-white col-sm-4 rounded-3 p-3" %>
+  </div>
+
 <hr>
 </div>
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-
-  <ul>
+<div class="container p-5">
+  <div class="card-animal-index py-4">
     <% @animals.each do |animal| %>
-      <div class="card-animal">
-        <li><%= link_to animal_path(animal), class:"text-decoration-none" do %>
-          <%= animal.name %></li>
-        </div>
+      <%= link_to animal_path(animal), class:"text-decoration-none" do %>
+        <div style="height: 200px; width 500px; background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(<%= animal.photo.attached? ? cl_image_tag(animal.photo.key) : asset_path('https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg') %>)">
+          </div>
+          <div class="p-2 text-center">
+            <div class ="text-center text-white btn btn-danger col-sm-12 rounded-3" ><%= animal.name %>
+            </div>
+          </div>
       <% end %>
     <% end %>
-  </ul>
-
+  </div>
 </div>
-
-<%# link_to "See details", animal_path(@animal), class: "btn btn-primary"%>
