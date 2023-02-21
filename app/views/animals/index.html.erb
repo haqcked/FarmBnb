@@ -6,7 +6,7 @@
 <div class="line">
 <%# haq added this link_to to the new_animal_path %>
   <div class="d-flex justify-content-center">
-    <%= link_to "Add new animal", new_animal_path, class: "btn btn-danger text-white col-sm-4 rounded-3 p-3" %>
+    <%= link_to "Add new animal", new_animal_path, class: "btn btn-danger text-white col-sm-4 rounded-3 p-3", target: :_blank %>
   </div>
 
 <hr>
@@ -15,7 +15,7 @@
 <div class="container p-5">
   <div class="card-animal-index py-4">
     <% @animals.each do |animal| %>
-      <%= link_to animal_path(animal), class:"text-decoration-none" do %>
+      <%= link_to animal_path(animal), class:"text-decoration-none", target: :_blank do %>
         <% if animal.photo.attached? %>
           <div style="height: 200px; width 500px; background-size: cover; background-image:
           url(<%= cl_image_path(animal.photo.key) %>)">
