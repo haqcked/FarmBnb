@@ -28,10 +28,11 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    if @animal.update(animal_params)
-      redirect_to @animal, notice: "Animal was successfully updated."
+    @animal = Animal.find(params[:id])
+    if @animal.update!(animal_params)
+      redirect_to @animal
     else
-      render :edit, status: :unprocessable_entity
+      render :show, status: :unprocessable_entity
     end
   end
 
