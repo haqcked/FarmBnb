@@ -24,9 +24,11 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    @animals.update(animal_params)
-    if @animals.save
-      redirect_to animal_path(@animals), notice: "Animal was successfully updated."
+    @animal = Animal.find(params[:id])
+    @animal.update(animal_params)
+    @animal.user = current_user
+    if @animal.save
+      redirect_to animal_path(@animal), notice: "Animal was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
