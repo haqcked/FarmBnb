@@ -11,10 +11,22 @@
           <% else %>
             <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image">
           <% end %>
+
+          <div class="d-flex justify-content-between align-items-center">
           <h4 class="card-title pt-3"><%= @animal.name %></h4>
+          <p><i class="fa-solid fa-pen-to-square"></i></i></p>
+          </div>
           <p class="card-text text-secondary">Categoty: <%= @animal.category.name.capitalize %></p>
           <p class="card-description"><%= @animal.description %></p>
           <h5 class="card-price"><%= number_to_currency(@animal.price) %> / day</h5>
+
+          <div class="d-flex justify-content-end p-3">
+            <%= link_to animal_path(@animal), class: "text-secondary text-decoration-none",
+            data: {turbo_method: :delete, turbo_confirm: "Delete #{@animal.name} from the list?"} do %>
+            <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          </div>
+
         </div>
       </div>
     </div>

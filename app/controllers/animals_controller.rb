@@ -22,7 +22,13 @@ class AnimalsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
+  
+  def destroy
+    @animal = Animal.find(params[:id])
+    @animal.destroy
+    redirect_to animals_path, status: :see_other
+  end
+  
   def edit
     @animal = Animal.find(params[:id])
   end

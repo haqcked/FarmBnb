@@ -12,7 +12,7 @@ Category.destroy_all
 
 puts "creating categories"
 
-animal_categories = ['Dog', 'Cat', 'Bird', 'Fish', 'Horse', 'Duck', 'Rabbit', 'Chicken', 'Goat', 'horse']
+animal_categories = ['Dog', 'Cat', 'Bird', 'Fish', 'Horse', 'Duck', 'Rabbit', 'Chicken', 'Goat', 'Horse', 'Other']
 
 animal_categories.each do |category|
   Category.create!(name: category)
