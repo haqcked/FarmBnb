@@ -1,4 +1,12 @@
-<div class="container mt-4">
+<div class="banner">
+    <h1>FarmBnb</h1>
+</div>
+
+<div class="line">
+<hr>
+</div>
+
+<div class="container my-5">
   <div class="row">
     <div class="col-md-6">
       <div class="card">
@@ -7,7 +15,7 @@
         </div>
         <div class="card-body">
           <% if @animal.photo.key.present? %>
-            <%= cl_image_tag(@animal.photo.key, class: "card-img-top") %>
+            <%= cl_image_tag(@animal.photo.key, cloud_name: 'dzh4zrfev', class: "card-img-top") %>
           <% else %>
             <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image">
           <% end %>
@@ -62,5 +70,5 @@
     </div>
   </div>
   <p></p>
-  <%= link_to "Back to animals", animals_path, class: "text-decoration-none" %>
+  <%# <%= link_to "Back to animals", animals_path, class: "text-decoration-none" %>
 </div>
