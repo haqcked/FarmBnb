@@ -14,43 +14,43 @@
 
 <div class="flexbox">
     <div class="card-animal">
-      <img src="https://cdn.britannica.com/55/174255-050-526314B6/brown-Guernsey-cow.jpg"/>
+      <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg"/>
+        <div class="card-animal-infos">
+          <h2>John</h2>
+          <p>a stray cat</p>
+        </div>
+    </div>
+    <div class="card-animal">
+      <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg"/>
         <div class="card-animal-infos">
           <div>
-            <h2>John the Cow</h2>
-            <p>'Meeeeeew'</p>
+            <h2>Jack</h2>
+            <p>a sheep</p>
           </div>
         </div>
     </div>
     <div class="card-animal">
-      <img src="https://a-z-animals.com/media/2021/12/sheep-1024x535.jpg"/>
+      <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg"/>
         <div class="card-animal-infos">
           <div>
-            <h2>Jack The Sheep</h2>
-            <p>'Beeeeeeh'</p>
+            <h2>Albert</h2>
+            <p>a pig</p>
           </div>
         </div>
     </div>
     <div class="card-animal">
-      <img src="https://i.natgeofe.com/k/6d301bfc-ff93-4f6f-9179-b1f66b19b9b3/pig-young-closeup_4x3.jpg"/>
+      <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg"/>
         <div class="card-animal-infos">
           <div>
-            <h2>Albert The Pig</h2>
-            <p>Will eat anything</p>
-          </div>
-        </div>
-    </div>
-    <div class="card-animal">
-      <img src="https://cdn.mos.cms.futurecdn.net/BX7vjSt8KMtcBHyisvcSPK.jpg"/>
-        <div class="card-animal-infos">
-          <div>
-            <h2>Hector The Chicken</h2>
-            <p>'Kot Kot Kot'</p>
+            <h2>Hector</h2>
+            <p>a chicken</p>
           </div>
         </div>
     </div>
 </div>
 
 <br>
-<a class="button" href="../animals">View Our Entire Catalogue</a>
-<br>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "View Our Entire Catalogue", animals_path, class: "btn btn-danger text-white col-sm-4 p-3" %>
+</div>
