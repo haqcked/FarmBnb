@@ -9,10 +9,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <% if user_signed_in? %>
-      <h4 class="greeting">Hi <%= current_user.first_name.capitalize %>!</h4>
-    <% end %>
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -23,8 +19,11 @@
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown avatar-center">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if user_signed_in? %>
+              <p class="greeting">Hi <%= current_user.first_name.capitalize %>!</p>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
