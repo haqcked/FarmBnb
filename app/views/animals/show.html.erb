@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-6">
       <div class="card">
@@ -12,17 +12,20 @@
             <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image">
           <% end %>
 
-          <div class="d-flex justify-content-between align-items-center">
-          <h4 class="card-title pt-3"><%= @animal.name %></h4>
-          <p><i class="fa-solid fa-pen-to-square"></i></i></p>
+          <div class="d-flex justify-content-between align-items-center pe-3">
+            <h4 class="card-title pt-3"><%= @animal.name %></h4>
+              <%= link_to edit_animal_path, class: 'text-danger text-decoration-none' do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+
           </div>
           <p class="card-text text-secondary">Categoty: <%= @animal.category.name.capitalize %></p>
           <p class="card-description"><%= @animal.description %></p>
           <h5 class="card-price"><%= number_to_currency(@animal.price) %> / day</h5>
 
           <div class="d-flex justify-content-end p-3">
-            <%= link_to animal_path(@animal), class: "text-secondary text-decoration-none",
-            data: {turbo_method: :delete, turbo_confirm: "Delete #{@animal.name} from the list?"} do %>
+            <%= link_to animal_path(@animal), class: "text-danger text-decoration-none",
+            data: {turbo_method: :delete, turbo_confirm: "Delete '#{@animal.name}' from the list?"} do %>
             <i class="fa-regular fa-trash-can"></i>
             <% end %>
           </div>
@@ -41,12 +44,12 @@
           <%= render "shared/form" %>
           <div class="booking-info px-5">
             <div class="d-flex justify-content-between">
-              <p><%= number_to_currency(@animal.price) %> x **number of days** </p>
-              <p>**</p>
+              <p><%= number_to_currency(@animal.price) %> x *number of days </p>
+              <p>$ **</p>
             </div>
             <div class="d-flex justify-content-between">
-              <p>extra charge </p>
-              <p>**</p>
+              <p>Delivery fee </p>
+              <p>$ **</p>
             </div>
           </div>
           <hr>
@@ -61,7 +64,3 @@
   <p></p>
   <%= link_to "Back to animals", animals_path, class: "text-decoration-none" %>
 </div>
-
-<div class="d-flex justify-content-center">
-    <%= link_to "Edit your animal", edit_animal_path, class: "btn btn-danger text-white col-sm-4 rounded-3 p-3" %>
-  </div>
