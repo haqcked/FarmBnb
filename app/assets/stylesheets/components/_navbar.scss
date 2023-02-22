@@ -12,7 +12,8 @@
   margin: -35px -25px;
 }
 
-.greeting {
-  color: red;
-  padding-left: 75px;
+.navbar-lewagon .greeting {
+  color: $danger;
+  text-align: center;
+  padding-left: 100px;
 }
