@@ -19,7 +19,7 @@
           <div class="card flex-grow-1">
             <div class="card-body">
               <% if animal.photo.key.present? %>
-                <%= cl_image_tag(animal.photo.key, class: "card-img-top", style: "object-fit: cover; height: 300px;") %>
+                <%= cl_image_tag(animal.photo.key, cloud_name: 'dzh4zrfev', class: "card-img-top", style: "object-fit: cover; height: 300px;") %>
               <% else %>
                 <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image" style="object-fit: cover; height: 300px;">
               <% end %>
