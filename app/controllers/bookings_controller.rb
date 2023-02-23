@@ -15,19 +15,11 @@ class BookingsController < ApplicationController
     @booking.animal = @animal
     # raise
     if @booking.save!
-      redirect_to animal_path(@animal), notice: 'Thanks for booking with FarmBNB!'
+      redirect_to animal_bookings_path(@animal), notice: 'Thanks for booking with FarmBNB!'
     else
       render :index
     end
   end
-
-  # def create
-  #   @animal = Animal.find(params[:animal_id])
-  #   @booking = Booking.new(booking_params)
-  #   # @booking.save
-  #   # I DONT KNOW HOW TO PROCEED
-  #   # I ALSO CANT RECALL HOW TO ACCESS THE PARAMS SO I CAN USE THE VALUES IN THE CARD
-  # end
 
   private
 
