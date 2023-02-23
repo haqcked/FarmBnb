@@ -5,8 +5,8 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
     @animal = Animal.find(params[:id])
+    @booking = Booking.new(animal: @animal, user: current_user)
   end
 
   def new
