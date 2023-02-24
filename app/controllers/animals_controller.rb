@@ -1,7 +1,15 @@
 class AnimalsController < ApplicationController
-
   def index
-    @animals = Animal.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        animals.name @@ :query
+          OR animals.description @@ :query
+          OR categories.name @@ :query
+      SQL
+      @animals = Animal.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @animals = Animal.all
+    end
   end
 
   def show
