@@ -12,7 +12,7 @@
 </div>
 
 <div class="container justify-content-center p-4 d-flex">
-    <div class="p-3">
+    <div class="col-6 p-3">
     <%= form_with url: animals_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -27,7 +27,7 @@
 <div class="container p-4 d-flex">
   <div class="row flex-row">
     <% @animals.each do |animal| %>
-        <div class="col-3 col-sm-6 col-md-4 mb-3 d-flex">
+        <div class="col-12 col-md-4 col-sm-4 mb-3 d-flex">
           <div class="card flex-grow-1">
             <div class="card-body">
               <% if animal.photo.key.present? %>
@@ -36,7 +36,7 @@
                 <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image" style="object-fit: cover; height: 300px;">
               <% end %>
               <div>
-                <%= link_to animal_path(animal), class: "text-decoration-none", target: "_blank" do  %>
+                <%= link_to animal_path(animal), class: "text-decoration-none" do  %>
                   <h4 class="card-title pt-3 text-danger"><%= animal.name.capitalize %></h4>
                 <% end %>
               </div>
