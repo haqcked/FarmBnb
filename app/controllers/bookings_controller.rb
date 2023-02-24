@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.animal = @animal
-    # raise
     if @booking.save!
       redirect_to animal_bookings_path(@animal), notice: 'Thanks for booking with FarmBNB!'
     else
