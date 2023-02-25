@@ -1,9 +1,9 @@
 class AnimalsController < ApplicationController
-  before_action :authenticate_user!, except: [:index] #this is to allow users to view index page without signing in
-  before_action :set_animal, only: %i[ show edit update destroy ]
+  # this is to allow users to view index page without signing in
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_animal, only: %i[show edit update destroy]
 
   def index
-
     if params[:query].present?
       sql_query = <<~SQL
       animals.name @@ :query
@@ -17,7 +17,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    authorize @animal # Add this line
+    # authorize @animal
     @booking = Booking.new(animal: @animal, user: current_user)
   end
 
@@ -39,14 +39,12 @@ class AnimalsController < ApplicationController
     end
   end
 
-
   def edit
-    authorize @animal
+    # authorize @animal
   end
 
   def update
-    authorize @animal
-
+    # authorize @animal
     if @animal.update!(animal_params)
       redirect_to @animal
     else
@@ -55,8 +53,7 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
-    authorize @animal
-
+    # authorize @animal
     @animal.destroy
     redirect_to animals_path, status: :see_other
   end
@@ -65,6 +62,7 @@ class AnimalsController < ApplicationController
 
   def set_animal
     @animal = Animal.find(params[:id])
+    authorize @animal
   end
 
   def animal_params
