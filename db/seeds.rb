@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+puts "cleaning database for booking"
+Booking.destroy_all
+
 puts "cleaning database for category"
 Category.destroy_all
 
@@ -18,6 +21,7 @@ animal_categories.each do |category|
   Category.create!(name: category)
 end
 puts "created 10 categories"
+
 
 puts "cleaning database for animals"
 Animal.destroy_all
