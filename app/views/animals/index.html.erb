@@ -1,25 +1,21 @@
 <div class="banner">
-    <h1>FarmBNB</h1>
-    <p>- Full List of Animals -</p>
+  <h1>FarmBNB</h1>
+  <p>- Full List of Animals -</p>
 </div>
 
 <div class="line">
-  <div class="d-flex justify-content-center">
-    <%= link_to "Add new animal", new_animal_path, class: "btn btn-danger text-white col-sm-4 p-3" %>
-  </div>
-
-<hr>
+  <hr>
 </div>
 
 <div class="container justify-content-center p-4 d-flex">
-    <div class="col-6 p-3">
+    <div class="col-5 p-3">
     <%= form_with url: animals_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "cat, dog, bird, goat"
+      placeholder: "animal"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-danger" %>
     <% end %>
     </div>
 </div>
@@ -40,7 +36,10 @@
                   <h4 class="card-title pt-3 text-danger"><%= animal.name.capitalize %></h4>
                 <% end %>
               </div>
-              <p><%=animal.category.name%></p>
+              <div class="extra-info d-flex justify-content-between">
+                <p class="text-secondary mb-0"><%=animal.category.name%></p>
+                <p class="owner text-secondary mb-0">Owner: <%= animal.user.first_name.capitalize %></p>
+              </div>
             </div>
           </div>
         </div>

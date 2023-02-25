@@ -1,30 +1,37 @@
 class AnimalsController < ApplicationController
+  # this is to allow users to view index page without signing in
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_animal, only: %i[show edit update destroy]
 
   def index
     if params[:query].present?
       sql_query = <<~SQL
-        animals.name @@ :query
-          OR animals.description @@ :query
-          OR categories.name @@ :query
+      animals.name @@ :query
+      OR animals.description @@ :query
+      OR categories.name @@ :query
       SQL
-      @animals = Animal.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+      @animals = policy_scope(Animal).joins(:category).where(sql_query, query: "%#{params[:query]}%")
     else
-      @animals = Animal.all
+      @animals = policy_scope(Animal)
     end
   end
 
   def show
-    @animal = Animal.find(params[:id])
+    # authorize @animal
     @booking = Booking.new(animal: @animal, user: current_user)
   end
 
   def new
     @animal = Animal.new
+    authorize @animal
   end
 
   def create
     @animal = Animal.new(animal_params)
     @animal.user = current_user
+
+    authorize @animal
+
     if @animal.save
       redirect_to animal_path(@animal)
     else
@@ -32,18 +39,12 @@ class AnimalsController < ApplicationController
     end
   end
 
-  def destroy
-    @animal = Animal.find(params[:id])
-    @animal.destroy
-    redirect_to animals_path, status: :see_other
-  end
-
   def edit
-    @animal = Animal.find(params[:id])
+    # authorize @animal
   end
 
   def update
-    @animal = Animal.find(params[:id])
+    # authorize @animal
     if @animal.update!(animal_params)
       redirect_to @animal
     else
@@ -51,7 +52,18 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def destroy
+    # authorize @animal
+    @animal.destroy
+    redirect_to animals_path, status: :see_other
+  end
+
   private
+
+  def set_animal
+    @animal = Animal.find(params[:id])
+    authorize @animal
+  end
 
   def animal_params
     params.require(:animal).permit(:name, :description, :price, :category_id, :photo)
