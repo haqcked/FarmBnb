@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_action :authenticate_user!, except: [:index] #this is to allow users to view index page without signing in
   before_action :set_animal, only: %i[ show edit update destroy ]
 
   def index
