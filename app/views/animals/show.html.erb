@@ -31,7 +31,10 @@
                 <% end %>
               <% end %>
             </div>
-            <p class="card-text text-secondary">Category: <%= @animal.category.name.capitalize %></p>
+            <div class="extra-info d-flex justify-content-between">
+                <p class="text-secondary">Category: <%= @animal.category.name %></p>
+                <p class="owner text-secondary px-3">Owner: <%= @animal.user.first_name.capitalize %></p>
+            </div>
             <p class="card-description"><%= @animal.description %></p>
             <div class="d-flex justify-content-end px-3">
               <% if policy(@animal).destroy? %>

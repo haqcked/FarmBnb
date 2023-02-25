@@ -2,19 +2,21 @@ class BookingsController < ApplicationController
   before_action :find_animal, only: [:create]
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = policy_scope(Booking).where(user_id: current_user.id)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.animal = @animal
+    authorize @booking
     if @booking.save!
-      redirect_to animal_bookings_path(@animal), notice: 'Thanks for booking with FarmBNB!'
+      redirect_to animal_bookings_path(@animal, @booking), notice: 'Thanks for booking with FarmBNB!'
     else
       render :index
     end
