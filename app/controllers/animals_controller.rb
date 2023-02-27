@@ -4,6 +4,16 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: %i[show edit update destroy]
 
   def index
+    @animals = Animal.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @animals.geocoded.map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {animal: animal})
+      }
+    end
+
     if params[:query].present?
       sql_query = <<~SQL
       animals.name @@ :query
@@ -66,6 +76,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :description, :price, :category_id, :photo)
+    params.require(:animal).permit(:name, :description, :price, :category_id, :photo, :address)
   end
 end

@@ -81,3 +81,5 @@ gem "cloudinary"
 gem "pundit"
 
 gem "geocoder"
+gem 'faker'
+gem "pg_search"
