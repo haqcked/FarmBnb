@@ -1,68 +1,79 @@
 <div class="banner">
-    <h1>FarmBnb</h1>
+    <h1>FarmBNB</h1>
 </div>
 
 <div class="line">
+    <%= link_to "Back to animals", animals_path, class:"text-danger text-decoration-none" %>
+
 <hr>
 </div>
 
 <div class="container my-5">
   <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Animal Details
-        </div>
-        <div class="card-body">
-          <% if @animal.photo.key.present? %>
-            <%= cl_image_tag(@animal.photo.key, cloud_name: 'dzh4zrfev', class: "card-img-top") %>
-          <% else %>
-            <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image">
-          <% end %>
-
-          <div class="d-flex justify-content-between align-items-center pe-3">
-            <h4 class="card-title pt-3"><%= @animal.name %></h4>
-              <%= link_to edit_animal_path, class: 'text-danger text-decoration-none' do %>
-              <i class="fa-solid fa-pen-to-square"></i>
-              <% end %>
-
+    <div class="d-flex justify-content-center">
+      <div class="col-md-5 mx-3">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">Animal Details</h4>
           </div>
-          <p class="card-text text-secondary">Category: <%= @animal.category.name.capitalize %></p>
-          <p class="card-description"><%= @animal.description %></p>
-          <h5 class="card-price"><%= number_to_currency(@animal.price) %> / day</h5>
-
-          <div class="d-flex justify-content-end p-3">
-            <%= link_to animal_path(@animal), class: "text-danger text-decoration-none",
-            data: {turbo_method: :delete, turbo_confirm: "Delete '#{@animal.name}' from the list?"} do %>
-            <i class="fa-regular fa-trash-can"></i>
+          <div class="card-body">
+            <% if @animal.photo.key.present? %>
+              <%= cl_image_tag(@animal.photo.key, cloud_name: 'dzh4zrfev', class: "card-img-top") %>
+            <% else %>
+              <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image">
             <% end %>
-          </div>
 
+            <div class="d-flex justify-content-between align-items-center pe-3">
+              <h4 class="card-title pt-3"><%= @animal.name %></h4>
+              <% if policy(@animal).edit? %>
+                <%= link_to edit_animal_path, class: 'text-danger text-decoration-none' do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="extra-info d-flex justify-content-between">
+                <p class="text-secondary">Category: <%= @animal.category.name %></p>
+                <p class="owner text-secondary px-3">Owner: <%= @animal.user.first_name.capitalize %></p>
+            </div>
+            <p class="card-description"><%= @animal.description %></p>
+            <div class="d-flex justify-content-end px-3">
+              <% if policy(@animal).destroy? %>
+                <%= link_to animal_path(@animal), class: "text-danger text-decoration-none",
+                data: {turbo_method: :delete, turbo_confirm: "Delete '#{@animal.name}' from the list?"} do %>
+                <i class="fa-regular fa-trash-can"></i>
+                <% end %>
+              <% end %>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-6">
-      <div class="card sticky-top">
-        <div class="card-header">
-          <h4 class="text-center">Book Dates for <%= @animal.name.capitalize %> the <%= @animal.category.name.capitalize %> </h4>
-        </div>
-            <%= simple_form_for [@animal, @booking] do |f| %>
-              <div class="form-group pb-3 p-3">
+      <div class="col-md-5 mx-3">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">Book Dates for <%= @animal.name.capitalize %> the <%= @animal.category.name.capitalize %> </h4>
+          </div>
+          <div class="my-4 px-5">
+            <h5 class="card-price fw-bold"><%= number_to_currency(@animal.price) %> / day</h5>
+          </div>
+          <%= simple_form_for [@animal, @booking] do |f| %>
+            <div class="form-group col-10 mx-auto pb-2">
               <%= f.label :start_date %>
               <%= f.date_field :start_date, class: "form-control", required: true %>
             </div>
 
-            <div class="form-group pb-3 p-3">
+            <div class="form-group col-10 mx-auto pb-2">
               <%= f.label :end_date %>
               <%= f.date_field :end_date, class: "form-control", required: true %>
             </div>
             <p></p>
             <div class="form-group p-3">
-              <%= f.submit "Book Now", class: "btn btn-danger d-grid gap-2 col-9 mx-auto" %>
+              <%= f.submit "Book Now", class: "btn btn-danger d-grid gap-2 col-9 mx-auto mb-3" %>
             </div>
           <% end %>
         </div>
       </div>
+    </div>
     </div>
 </div>
