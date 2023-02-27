@@ -18,4 +18,16 @@ class BookingPolicy < ApplicationPolicy
     return true
   end
 
+  def edit
+    return update?
+  end
+
+  def update?
+    return record.user == user
+  end
+
+  def destroy?
+    return record.user == user
+  end
+
 end

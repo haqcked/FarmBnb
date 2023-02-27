@@ -1,18 +1,28 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-md-6">
-    <div class="text-center p-2">
-  <h3> Thanks for booking with FarmBNB!</h3>
-  </div>
+      <div class="text-center p-2">
+        <h3> Thanks for booking with FarmBNB!</h3>
+      </div>
       <div class="card">
         <div class="card-header">
           <h3 class="bookings-greeting"><%= current_user.first_name.capitalize %>'s bookings</h3>
         </div>
-        <div class="card-body">
+          <div class="card-body">
           <% @bookings.each do |booking| %>
             <h2><%= booking.animal.name %></p></h2>
+           <div class="d-flex justify-content-between align-items-center pe-3">
             <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-          <hr>
+              <%= link_to edit_booking_path(booking, animal:booking.animal), class: 'text-danger text-decoration-none' do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+              </div>
+
+              <%= link_to booking_path(booking), class: "text-danger text-decoration-none",
+                data: {turbo_method: :delete, turbo_confirm: "Delete '#{booking.animal.name}' from the list?"} do %>
+                <i class="fa-regular fa-trash-can"></i>
+              <% end %>
+              <hr>
           <% end %>
         </div>
       </div>

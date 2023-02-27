@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :animals do
     resources :bookings, only: [:create, :index]
   end
-  resources :bookings, only: [:index, :edit, :update]
+  resources :bookings, only: [:index, :edit, :update, :destroy]
   resources :users, only: [:show]
   # create the category files in the seed
 
