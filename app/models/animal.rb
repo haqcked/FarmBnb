@@ -10,6 +10,19 @@ class Animal < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, numericality: true
+  validates :address, presence: true
+
+  include PgSearch::Model
+
+  pg_search_scope :global_search,
+  against: [ :name, :description ],
+  associated_against: {
+    user: [:first_name, :last_name],
+    category: [:name]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 
 
 end
