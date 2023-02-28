@@ -5,7 +5,6 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
-    # The `geocoded` scope filters only flats with coordinates
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,
@@ -15,12 +14,7 @@ class AnimalsController < ApplicationController
     end
 
     if params[:query].present?
-      sql_query = <<~SQL
-      animals.name @@ :query
-      OR animals.description @@ :query
-      OR categories.name @@ :query
-      SQL
-      @animals = policy_scope(Animal).joins(:category).where(sql_query, query: "%#{params[:query]}%")
+      @animals = policy_scope(Animal).global_search(params[:query])
     else
       @animals = policy_scope(Animal)
     end
