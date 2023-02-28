@@ -20,37 +20,39 @@
     </div>
 </div>
 
-<div class="container p-4 d-flex">
-  <div class="row flex-row">
-    <% @animals.each do |animal| %>
-        <div class="col-12 col-md-4 col-sm-4 mb-3 d-flex">
-          <div class="card flex-grow-1">
-            <div class="card-body">
-              <% if animal.photo.key.present? %>
-                <%= cl_image_tag(animal.photo.key, cloud_name: 'dzh4zrfev', class: "card-img-top", style: "object-fit: cover; height: 300px;") %>
-              <% else %>
-                <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image" style="object-fit: cover; height: 300px;">
-              <% end %>
-              <div>
-                <%= link_to animal_path(animal), class: "text-decoration-none" do  %>
-                  <h4 class="card-title pt-3 text-danger"><%= animal.name.capitalize %></h4>
+
+  <div class="container p-4">
+    <div class="row flex-row">
+      <% @animals.each do |animal| %>
+          <div class="col-12 col-sm-4 mb-3 d-flex">
+            <div class="card flex-grow-1">
+              <div class="card-body">
+                <% if animal.photo.key.present? %>
+                  <%= cl_image_tag(animal.photo.key, cloud_name: 'dzh4zrfev', class: "card-img-top", style: "object-fit: cover; height: 300px;") %>
+                <% else %>
+                  <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="card-img-top" alt="Default Image" style="object-fit: cover; height: 300px;">
                 <% end %>
-              </div>
-              <div class="extra-info d-flex justify-content-between">
-                <p class="text-secondary mb-0"><%=animal.category.name%></p>
-                <p class="owner text-secondary mb-0">Owner: <%= animal.user.first_name.capitalize %></p>
+                <div>
+                  <%= link_to animal_path(animal), class: "text-decoration-none" do  %>
+                    <h4 class="card-title pt-3 text-danger"><%= animal.name.capitalize %></h4>
+                  <% end %>
+                </div>
+                <div class="extra-info d-flex justify-content-between">
+                  <p class="text-secondary mb-0"><%=animal.category.name%></p>
+                  <p class="owner text-secondary mb-0">Owner: <%= animal.user.first_name.capitalize %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="container p-4">
-  <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <% end %>
     </div>
+
+    <div class="comtainer p-4">
+      <div style="width: 100%; height: 800px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+
 </div>

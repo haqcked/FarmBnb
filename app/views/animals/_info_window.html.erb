@@ -1,2 +1,5 @@
-<h4><%= animal.name %></h4>
+
+<%= link_to animal_path(animal), class: "text-decoration-none" do  %>
+  <h5 class="card-title pt-3 text-danger"><%= animal.name.capitalize %> the <%= animal.category.name.downcase %></h5>
+  <% end %>
 <p><%= animal.address %></p>
