@@ -7,7 +7,7 @@
 <hr>
 </div>
 
-<div class="subtitle-container">
+<%# <div class="subtitle-container">
 <div>
   <h2>Our Top Most-Rented Animals</h2>
 </div>
@@ -43,12 +43,44 @@
           </div>
         </div>
     </div>
-</div>
+</div> %>
 
+
+<%# ========================================== %>
+<br>
+<div class="container p-3 col-7", id="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% @animals.each_with_index do |animal, index| %>
+          <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+            <% if animal.photo.present? %>
+              <%= cl_image_tag(animal.photo.key, class: "d-block w-100", style: "object-fit: cover; height: 500px;") %>
+            <% else %>
+              <img src="https://res.cloudinary.com/dzh4zrfev/image/upload/v1676895717/farm_animals.jpg" class="d-block w-100" alt="Default Image" style="object-fit: cover; height: 500px;">
+            <% end %>
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="fs-1 fw-bold"><%= animal.name.capitalize %></h5>
+              <p><%= animal.description %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+</div>
 <br>
 
-<div class="d-flex justify-content-center">
-  <%= link_to "View Our Entire Catalogue", animals_path, class: "btn btn-danger text-white col-sm-4 p-3" %>
+<%# ============================================= %>
+
+<div class="d-flex justify-content-center mt-3">
+  <%= link_to "View Our Entire Catalogue", animals_path, class: "btn btn-danger text-white col-sm-3 p-3" %>
 </div>
 <br>
 
