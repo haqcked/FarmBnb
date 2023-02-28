@@ -21,6 +21,13 @@ class AnimalsController < ApplicationController
   end
 
   def show
+    @markers = [@animal].map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {animal: @animal})
+      }
+    end
     # authorize @animal
     @booking = Booking.new(animal: @animal, user: current_user)
   end
