@@ -1,6 +1,6 @@
 <div class="banner">
-  <h1>FarmBNB</h1>
-  <p>- My Booking Details -</p>
+  <h1 class="text-danger">FarmBNB</h1>
+  <p>My Booking Details</p>
 </div>
 
 <div class="line">
@@ -25,15 +25,18 @@
               <% end %>
 
 
-              <%= link_to edit_booking_path(booking, animal:booking.animal), class: 'text-danger text-decoration-none' do %>
-              <p><i class="fa-solid fa-pen-to-square"></i> Edit your booking</p>
+              <%= link_to edit_booking_path(booking, animal:booking.animal), class: 'btn btn-danger text-white text-decoration-none col-4' do %>
+              <p class="mb-0"><i class="fa-solid fa-pen-to-square"></i> Edit booking</p>
               <% end %>
             </div>
             <div class="d-flex justify-content-between align-items-center pe-3">
-              <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-              <%= link_to booking_path(booking), class: "text-danger text-decoration-none",
+              <div class="dates_details">
+                <p class="mb-0">From: <%= booking.start_date %></p>
+                <p class="mb-0">To: <%= booking.end_date %></p>
+              </div>
+              <%= link_to booking_path(booking), class: "btn btn-danger text-white text-decoration-none col-4",
                   data: {turbo_method: :delete, turbo_confirm: "Cancel booking for '#{booking.animal.name}'?"} do %>
-                  <p><i class="fa-regular fa-trash-can"></i> Cancel booking</p>
+                  <p class="mb-0"><i class="fa-regular fa-trash-can"></i> Cancel booking</p>
               <% end %>
             </div>
             <hr>
@@ -57,9 +60,18 @@
               <%= link_to animal_path(booking.animal), class: "text-decoration-none" do  %>
               <h2 class="card-title text-danger"><%= booking.animal.name %></h2>
               <% end %>
-              <p>Booked by: <%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %> </p>
+              <p class="pe-3 mb-0">Booked by: <%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %> </p>
           </div>
-          <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+          <div class="d-flex justify-content-between align-items-center pe-3">
+              <div class="dates_details">
+                <p class="mb-0">From: <%= booking.start_date %></p>
+                <p class="mb-0">To: <%= booking.end_date %></p>
+              </div>
+              <%= link_to "#", class: "btn btn-danger text-white text-decoration-none col-4",
+                  data: {turbo_method: :delete, turbo_confirm: "Cancel booking for '#{booking.animal.name}'?"} do %>
+                  <p class="mb-0"><i class="fa-solid fa-check"></i> Confirm booking</p>
+              <% end %>
+            </div>
           <hr>
         <% end %>
       <% end %>

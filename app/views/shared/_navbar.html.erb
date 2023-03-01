@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid">
+  <div class="container-fluid px-5">
     <%= link_to root_path, class: "farmbnb-logo" do %>
       <div class="farmbnb-logo" ><%= image_tag "https://res.cloudinary.com/dzh4zrfev/image/upload/v1676798609/Brown_Green_Minimalist_Farm_Animal_Logo_1_vf6tpq.png" %>
       </div>
@@ -20,9 +20,6 @@
             <%= link_to "Animals", animals_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Add Animal", new_animal_path , class: "nav-link" %>
-          </li>
-          <li class="nav-item">
             <%= link_to "Bookings", bookings_path , class: "nav-link" %>
           </li>
           <li class="nav-item dropdown avatar-center">
@@ -32,7 +29,7 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Add Animal", new_animal_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

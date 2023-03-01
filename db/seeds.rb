@@ -29,19 +29,19 @@ Animal.destroy_all
 lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
 puts "creating animal 1"
-Animal.create!(name: "Jazz", description: lorem, price: 15, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Jazz", description: lorem, price: 15, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 puts "creating animal 2"
-Animal.create!(name: "Bruno", description: lorem, price: 15, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Bruno", description: lorem, price: 15, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 puts "creating animal 3"
-Animal.create!(name: "Miley", description: lorem, price: 25, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Miley", description: lorem, price: 25, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 puts "creating animal 4"
-Animal.create!(name: "Voldemort", description: lorem, price: 35, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Voldemort", description: lorem, price: 35, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 puts "creating animal 5"
-Animal.create!(name: "Harry", description: lorem, price: 10, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Harry", description: lorem, price: 10, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 puts "creating animal 6"
-Animal.create!(name: "Jefferson", description: lorem, price: 20, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Jefferson", description: lorem, price: 20, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 puts "creating animal 7"
-Animal.create!(name: "Sarah", description: lorem, price: 40, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_address)
+Animal.create!(name: "Sarah", description: lorem, price: 40, user_id: User.first.id, category_id: Category.all.sample.id, address: Faker::Address.street_name)
 
 puts "done creating 7 animals"
 
