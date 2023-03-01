@@ -1,6 +1,6 @@
 <div class="banner">
-  <h1>FarmBNB</h1>
-  <p>- Full List of Animals -</p>
+  <h1 class="text-danger">FarmBNB</h1>
+  <p>Full List of Animals</p>
 </div>
 
 <div class="line">
@@ -13,7 +13,7 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "animal"
+      placeholder: "search for animal"
     %>
     <%= submit_tag "Search", class: "btn btn-danger" %>
     <% end %>

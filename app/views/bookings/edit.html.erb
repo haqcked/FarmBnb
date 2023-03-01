@@ -1,30 +1,30 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="bg-white rounded p-3 shadow mb-2">
         <div class="back-edit">
           <h2 class="text-center">Edit and Confirm this Booking</h2>
         </div>
 
-
-        <div class="container p-4">
+        <div class="container p-4 mb-4">
 
           <%= simple_form_for(@booking)  do |f| %>
             <div class="form-group col-10 mx-auto pb-2">
-            <%= f.label :start_date %>
-            <%= f.date_field :start_date, class: "form-control", required: true %>
-          </div>
-          <p></p>
-          <div class="form-group col-10 mx-auto pb-2">
-            <%= f.label :end_date %>
-            <%= f.date_field :end_date, class: "form-control", required: true %>
-          </div>
-          <p></p>
+              <%= f.label :start_date %>
+              <%= f.date_field :start_date, class: "form-control", required: true %>
+            </div>
+            <br>
+            <div class="form-group col-10 mx-auto pb-5">
+              <%= f.label :end_date %>
+              <%= f.date_field :end_date, class: "form-control", required: true %>
+            </div>
+            <br>
           <%= f.submit "Book Now", class: "btn btn-danger d-grid gap-2 col-9 mx-auto" %>
         <% end %>
         </div>
       </div>
-    <%= link_to "Back to your booking", bookings_path, class: "text-danger text-decoration-none" %>
+      <br>
+      <%= link_to "Back to your booking", bookings_path, class: "text-danger text-decoration-none" %>
     </div>
   </div>
   </div>
